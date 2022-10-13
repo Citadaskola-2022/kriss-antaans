@@ -2,25 +2,35 @@
 
 declare(strict_types=1);
 
-require_once '../src/Car.php';
+//require_once __DIR__ . '/../app/Car.php';
+//require_once __DIR__ . '/../app/Driver.php';
+//require_once __DIR__ . '/../app/Licence.php';
+//
+//require_once __DIR__ . '/../app/Invoices/Invoice/Bill.php';
+//require_once __DIR__ . '/../app/Invoices/Credit/Bill.php';
+//require_once __DIR__ . '/../app/Invoices/Subscription/CostumerProfile.php';
+//require_once __DIR__ . '/../app/Notifications/Email.php';
+//
+//require_once __DIR__ . '/../app/Invoices/Subscription/Bill.php';
 
-// $obj = stdClass();
-
-
-
-# homework: driver (name, surname, age)
-//xhprof_disable()
-$car =(new Car(1000, number_plate: 'AB-1234', fuelCosumption: 14.6))
-    ->addKilometers(kilometers: 200)
-    ->addKilometers(kilometers: 500)
-    ->getConsumedLiters();
-
-$car =(new Car(odometer: 12500, number_plate: 'ZZ-23', fuelCosumption: 4.6))
-    ->addKilometers(kilometers: 200)
-    ->addKilometers(kilometers: 500)
-    ->getConsumedLiters();
-
-$Driver =(new Driver(name: 'jankels', surname: 'beerzs', age: 54));
+spl_autoload_register(function ($class){
+    $class = __DIR__ . '/../' .lcfirst(str_replace('\\','/', $class)) .'.php';
+    require_once $class;
+    var_dump($class);
+});
 
 
+
+
+use \App\Invoices\Credit\Bill as CreditBill;
+use \App\Invoices\Invoice\Bill as InvoiceBill;
+use \App\Invoices\Subscription\Bill as SubInvoice;
+
+$creditBill = new CreditBill();
+$subBill = new SubInvoice();
+
+//$creditBill = new Bill();
+//$subtBill = new Bill();
+
+var_dump($creditBill, $subBill);
 //require __DIR__ . '/../bootstrap/app.php';

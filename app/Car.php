@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 class Car
 {
+    public ?Driver $driver = null;
+
+
+
+
     private int $odometer;
 
     private string $number_plate;
@@ -36,37 +41,5 @@ class Car
     {
         echo "Car $this->number_plate Destroyed </br>". PHP_EOL;
     }
-
-
-
-
-
-
-
-}
-
-class driver
-{
-    public string $name;
-
-    public string $surname;
-
-    public int $age;
-
-    public function __construct(
-        string $name,
-        string $surname,
-        int $age )
-    {
-        $this->name=$name;
-        $this->surname=$surname;
-        $this->age = $age;
-    }
-
-    public function  __destruct()
-    {
-        echo "Driver $this->name $this->surname $this->age Destroyed </br>". PHP_EOL;
-    }
-
 
 }
