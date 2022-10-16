@@ -1,6 +1,6 @@
 <?php
 
-class licence
+Class licence
 {
     public ?string $expirationDate = '';
 }
