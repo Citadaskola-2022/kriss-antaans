@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+namespace App\Invoices\Bill;
 
 class Bill
 {
@@ -11,5 +12,4 @@ class Bill
         $email = new \App\Notifications\Email();
         var_dump($email);
     }
-
 }

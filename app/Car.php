@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Notifications\Driver;
+
 class Car
 {
     public ?Driver $driver = null;
