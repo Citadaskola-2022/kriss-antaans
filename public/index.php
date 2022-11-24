@@ -1,23 +1,31 @@
 <?php
 
 declare(strict_types=1);
+require __DIR__ . '/../bootstrap/app.php';
+$coffee = new \App\Cafe\CoffeeWithMilk();
+
+var_dump($coffee);
+
+$coffee->prepare(50);
+$coffee->prepare(40);
+$coffee->prepare(30);
 
 
-use Src\Phone;
+makeCoffee($coffee);
 
-$iphone = new Phone(11, 'Apple', 144, 71.4);
-$android = new Phone(22, 'Samsung');
+$coffee->brew();
 
-echo $iphone->getSize();
+function makeCoffee(\App\Cafe\Coffee $coffee): void
+{
+   // if($coffee instanceof \App\Cafe\CoffeeWithMilk)
+    $coffee->addMilk();
+}
 
-$iphone->installApp('Facebook');
-$iphone->installApp('Instagram');
-$iphone->instalApp('Duolingo');
+$coffee = new \App\Cafe\CoffeeWithMilk();
+$iced = new \App\Cafe\IcedCoffee($coffee);
+$iced->prepare(50);
+$iced->addIce(5);
+$iced->addIce(50);
+$iced->brew();
 
-echo implode(',', $iphone->getInstalledApps());
-
-$iphone->turnOnSettings('DoNotDisturb');
-$iphone->turnOnSettings('Mute');
-$iphone->turnOnSettings('Light');
-
-//require __DIR__ . '/../bootstrap/app.php';
+var_dump($iced);
