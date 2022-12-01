@@ -1,7 +1,19 @@
 <?php
 
 declare(strict_types=1);
+require __DIR__ . '/../bootstrap/app.php';
 
+
+
+$fields = [
+    new \App\Form\Text('text_field'),
+    new \App\Form\Checkbox('checkbox_field'),
+    new \App\Form\Radio('radio_field'),
+];
+
+foreach ($fields as $field){
+    echo $field->render();
+}
 
 spl_autoload_register(function ($class){
     $class = __DIR__ . '/../' .lcfirst(str_replace('\\','/', $class)) .'.php';
@@ -60,4 +72,5 @@ printf(
     $uuid->toString(),
     $uuid->getFields()->getVersion()
 );
+
 
