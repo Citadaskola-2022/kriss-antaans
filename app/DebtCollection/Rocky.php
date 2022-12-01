@@ -2,7 +2,10 @@
 
 namespace App\DebtCollection;
 
-class Rocky
+class Rocky implements Collector
 {
-
+    public function getMoney(int $ownedAmount): float
+    {
+        return $ownedAmount * 0.65;
+    }
 }
