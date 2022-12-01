@@ -2,6 +2,25 @@
 
 declare(strict_types=1);
 
+
+namespace App\Notifications\Driver;
+
+class Car
+{
+    public ?Driver $driver = null;
+    private int $odometer;
+    private string $number_plate;
+    public function __construct(
+        int $odometer,
+        string $number_plate,
+        private float $fuelCosumption
+    )
+    {
+        $this->odometer = $odometer;
+        $this->number_plate = $number_plate;
+
+    }
+
 class Car
 {
     private int $odometer;
@@ -21,6 +40,7 @@ class Car
     }
 
 
+
     public function addKilometers (int $kilometers): Car
     {
         #$this->odometer=$this->odometer+$kilometers;
@@ -36,11 +56,6 @@ class Car
     {
         echo "Car $this->number_plate Destroyed </br>". PHP_EOL;
     }
-
-
-
-
-
 
 
 }
@@ -67,6 +82,7 @@ class driver
     {
         echo "Driver $this->name $this->surname $this->age Destroyed </br>". PHP_EOL;
     }
+
 
 
 }
