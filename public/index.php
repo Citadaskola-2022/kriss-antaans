@@ -2,22 +2,45 @@
 
 declare(strict_types=1);
 
+use App\ServiceCosts;
 
-use Src\Phone;
+use Doctrine\Inflector\InflectorFactory;
+use Ramsey\Uuid\Uuid;
 
-$iphone = new Phone(11, 'Apple', 144, 71.4);
-$android = new Phone(22, 'Samsung');
+require __DIR__ . '/../bootstrap/app.php';
 
-echo $iphone->getSize();
+$transactions = new ServiceCosts(200);
 
-$iphone->installApp('Facebook');
-$iphone->installApp('Instagram');
-$iphone->instalApp('Duolingo');
+//$transactions->process();
 
-echo implode(',', $iphone->getInstalledApps());
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
-$iphone->turnOnSettings('DoNotDisturb');
-$iphone->turnOnSettings('Mute');
-$iphone->turnOnSettings('Light');
 
-//require __DIR__ . '/../bootstrap/app.php';
+//echo '<pre>';
+var_dump($_ENV['SECRET_KEY']);
+
+$inflector = InflectorFactory::create()->build();
+
+$name = 'apple';
+printf(
+    'vienskaitlis: %s, daudzskaitlis: %s',
+    $name, $inflector->pluralize($name)
+);
+echo '<br>';
+
+
+$blogPost = 'This is MY 3yd4gy Blog post';
+printf(
+    'title: %s, url: %s',
+    $blogPost, $inflector->urlize($blogPost)
+);
+echo '<br>';
+
+$uuid = Uuid::uuid4();
+
+printf(
+    "UUID: %s\nVersion: %d\n",
+    $uuid->toString(),
+    $uuid->getFields()->getVersion()
+);
