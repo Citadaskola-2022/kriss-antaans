@@ -1,76 +1,35 @@
-<?php
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+<div id="app">
+    <p>
+        <input type="text" v-model="greeting">
+    </p>
+    <p>
+        {{greeting}} ({{greeting.length}})
+    </p>
+</div>
 
-declare(strict_types=1);
-require __DIR__ . '/../bootstrap/app.php';
+<script>
+    Vue.createApp ({
+        data() {
+            return {
+                greeting: 'Hello world'
+            };
+        },
 
+        mounted() {
+            setTimeout(() => {
+                this.greeting = 'Changed';
+            }, 3000);
+        }
+    }).mount('#app');
+</script>
 
-
-$fields = [
-    new \App\Form\Text('text_field'),
-    new \App\Form\Checkbox('checkbox_field'),
-    new \App\Form\Radio('radio_field'),
-];
-
-foreach ($fields as $field){
-    echo $field->render();
-}
-
-spl_autoload_register(function ($class){
-    $class = __DIR__ . '/../' .lcfirst(str_replace('\\','/', $class)) .'.php';
-    require_once $class;
-});
-
-use \App\Invoices\Credit\Bill as CreditBill;
-use \App\Invoices\Invoice\Bill as InvoiceBill;
-use \App\Invoices\Subscription\Bill as SubInvoice;
-
-$creditBill = new CreditBill();
-$subBill = new SubInvoice();
-
-var_dump($creditBill, $subBill);
-
-
-use App\ServiceCosts;
-
-use Doctrine\Inflector\InflectorFactory;
-use Ramsey\Uuid\Uuid;
-
-require __DIR__ . '/../bootstrap/app.php';
-
-$transactions = new ServiceCosts(200);
-
-//$transactions->process();
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
-
-
-//echo '<pre>';
-var_dump($_ENV['SECRET_KEY']);
-
-$inflector = InflectorFactory::create()->build();
-
-$name = 'apple';
-printf(
-    'vienskaitlis: %s, daudzskaitlis: %s',
-    $name, $inflector->pluralize($name)
-);
-echo '<br>';
-
-
-$blogPost = 'This is MY 3yd4gy Blog post';
-printf(
-    'title: %s, url: %s',
-    $blogPost, $inflector->urlize($blogPost)
-);
-echo '<br>';
-
-$uuid = Uuid::uuid4();
-
-printf(
-    "UUID: %s\nVersion: %d\n",
-    $uuid->toString(),
-    $uuid->getFields()->getVersion()
-);
-
-
+</body>
+</html>
