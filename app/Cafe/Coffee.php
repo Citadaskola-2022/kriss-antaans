@@ -30,5 +30,41 @@ class Coffee
             echo sprintf('%d: adding %dml portion to cup' . PHP_EOL , $i + 1, $portion);
         }
     }
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 
+<title>Document</title>
+<script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+<div id="app">
+<p>
+<input type="text" v-model="greeting">
+
+</p>
+
+<p>
+{{ greeting }} ({{greeting.lenght}})
+        </p>
+
+    </div>
+
+    <script>
+Vue.creatApp({
+            data() {
+            reuturn {
+                    greeting: 'yo '
+                };
+            }
+        }).mount('#app');
+
+    </script>
+
+</body>
+
+
+</html>
 }

@@ -1,35 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Episode 3:Lists, Conditionals, and Computed Properties</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<div id="app">
-    <p>
-        <input type="text" v-model="greeting">
-    </p>
-    <p>
-        {{greeting}} ({{greeting.length}})
-    </p>
-</div>
+<body class="h-full grid place-items-center">
+    <div id="app"></div>
 
-<script>
-    Vue.createApp ({
-        data() {
-            return {
-                greeting: 'Hello world'
-            };
-        },
 
-        mounted() {
-            setTimeout(() => {
-                this.greeting = 'Changed';
-            }, 3000);
-        }
-    }).mount('#app');
-</script>
+    <script type="module">
+        import App from './js/Components/App.js';
+
+        Vue.createApp(App).mount('#app');
+    </script>
 
 </body>
 </html>
