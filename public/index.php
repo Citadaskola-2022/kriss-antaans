@@ -1,17 +1,19 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html class="h-full">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Episode 3:Lists, Conditionals, and Computed Properties</title>
+    <title>Vue.js Data Binding</title>
+    <link rel="stylesheet" href="index.css">
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+
 </head>
-<body class="h-full grid place-items-center">
+<body class="bg-gray-300 text-black h-full grid place-items-center">
     <div id="app"></div>
 
-
     <script type="module">
-        import App from './js/Components/App.js';
+        import App from './js/prr.js';
 
         Vue.createApp(App).mount('#app');
     </script>
