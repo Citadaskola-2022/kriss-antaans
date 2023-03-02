@@ -1,35 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="https://unpkg.com/vue@3"></script>
-</head>
-<body>
-<div id="app">
-    <p>
-        <input type="text" v-model="greeting">
-    </p>
-    <p>
-        {{greeting}} ({{greeting.length}})
-    </p>
-</div>
+<?php
 
-<script>
-    Vue.createApp ({
-        data() {
-            return {
-                greeting: 'Hello world'
-            };
-        },
+declare(strict_types=1);
 
-        mounted() {
-            setTimeout(() => {
-                this.greeting = 'Changed';
-            }, 3000);
-        }
-    }).mount('#app');
-</script>
+require __DIR__ .'/../bootstrap/app.php';
 
-</body>
-</html>
+require __DIR__ .'/../router.php';

@@ -1,0 +1,40 @@
+Pirmo metodiskā materiāla daļu skaidro eksāmena pasniedzējs, otrajā daļā ir izskaidrota eksāmena uzņemšanas darba nozīme un kādas ir prasības tā iesniegšanai? Šī materiāla trešajā daļā ar piemēriem aprakstīti eksāmenu uzdevumu veidi, to veidošanas un tulkošanas pamatprincipi. Ceturtajā daļā ir apkopots vielas replikācijas plāns. Piektajā daļā ir norādīti palīglīdzekļi, kurus atļauts izmantot eksāmena laikā. Ir norādīti ieteicamie tīmekļa resursi pašmācībai.
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+<div id="app">
+    <p>
+        <input type="text" v-model="greeting">
+    </p>
+    <p>
+        {{greeting}} ({{greeting.length}})
+    </p>
+</div>
+
+<script>
+    Vue.createApp ({
+        data() {
+            return {
+                greeting: 'Hello world'
+            };
+        },
+
+        mounted() {
+            setTimeout(() => {
+                this.greeting = 'Changed';
+            }, 3000);
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>
