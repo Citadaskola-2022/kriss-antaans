@@ -14,8 +14,12 @@ function abort(int $code = 404){
 $routes = [
     '/' => '/controllers/index.php',
     '/about' => '/controllers/about.php',
-    '/contacs' => '/controllers/concats.php',
+    '/contacts' => '/controllers/contacts.php',
     '/pd/task' => 'controllers/pd/task4.php',
+    '/register' => 'controllers/users/register.php',
+    '/logout' => 'controllers/users/logout.php',
+
+
 ];
 
 if (array_key_exists($uri, $routes)){
